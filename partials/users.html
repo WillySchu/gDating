@@ -1,0 +1,14 @@
+<div class="users-view container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <ul>
+        <li ng-repeat='member in users.members'>
+          <a ui-sref='.detail({id: member._id})'>{{member.username}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div ui-view='detail'></div>
+    </div>
+  </div>
+</div>

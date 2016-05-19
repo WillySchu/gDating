@@ -1,5 +1,5 @@
 angular.module('app')
-  .factory('User', function($http, $window, $state) {
+  .factory('User', function($http, $window, $state, $q) {
     const baseUrl = 'https://galvanize-student-apis.herokuapp.com/gdating/';
     let user = {};
     return {
@@ -21,7 +21,7 @@ angular.module('app')
         $state.go('main');
       },
       getUser: function() {
-        return JSON.parse($window.localStorage.getItem("user"));
+        return JSON.parse($window.localStorage.getItem('user'));
       }
     }
   })

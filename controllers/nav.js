@@ -7,4 +7,7 @@ function Nav(User) {
   const vm = this;
 
   vm.logout = User.logout;
+  vm.profile = function() {
+    console.log(User.getUserInfo());
+  }
 }

@@ -14,8 +14,8 @@
   </head>
   <body>
     <div ui-view='nav'></div>
+    <div ui-view='sidebar'></div>
     <div ui-view='content'></div>
-    <div ui-view></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -28,7 +28,12 @@
     <script src="controllers/nav.js" charset="utf-8"></script>
     <script src="controllers/users.js" charset="utf-8"></script>
     <script src="controllers/userDetail.js" charset="utf-8"></script>
+    <script src="controllers/messages.js" charset="utf-8"></script>
+    <script src="controllers/profile.js" charset="utf-8"></script>
+    <script src="controllers/search.js" charset="utf-8"></script>
+    <script src="controllers/splash.js" charset="utf-8"></script>
     <script src="services/members.js" charset="utf-8"></script>
     <script src="services/user.js" charset="utf-8"></script>
+    <script src="filters/phone.js" charset="utf-8"></script>
   </body>
 </html>

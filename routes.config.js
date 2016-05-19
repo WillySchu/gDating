@@ -3,8 +3,19 @@ angular.module('app')
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
+      .state('splash', {
+        url: '/splash',
+        views: {
+          'splash': {
+            templateUrl: 'partials/splash.html',
+            controller: 'Splash',
+            controllerAs: 'splash'
+          }
+        }
+      })
       .state('main', {
         url: '/',
+        restricted: true,
         views: {
           'nav': {
             templateUrl: 'partials/nav.html',
@@ -16,8 +27,8 @@ angular.module('app')
           }
         }
       })
-      .state('main.login', {
-        url: 'login',
+      .state('login', {
+        url: '/login',
         preventWhenLoggedIn: true,
         views: {
           'content@': {
@@ -59,6 +70,22 @@ angular.module('app')
         resolve: {
           selectedUser: function(Members, $stateParams) {
             return Members.getUserById($stateParams.id);
+          }
+        }
+      })
+      .state('main.profile', {
+        url: 'profile',
+        restricted: true,
+        views: {
+          'content@': {
+            templateUrl: 'partials/profile.html',
+            controller: 'Profile',
+            controllerAs: 'profile'
+          }
+        },
+        resolve: {
+          user: function(User) {
+            return User.getUser()
           }
         }
       })

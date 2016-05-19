@@ -65,9 +65,41 @@ body {
   border-top-right-radius: 0;
 }
 
-/*-------------------------------------------------*/
+/* Users
+-------------------------------------------------*/
 
-.block-update-card {
+.user-card .container {
+  width: 100%;
+}
+
+.user-card .container, .user-card .col-md-5 {
+  margin: 0;
+  padding: 0;
+}
+
+.fa {
+  width: 100%;
+  height: auto;
+  size: 100%;
+  font-size: 40px;
+}
+
+.fa-heart {
+  color: #c11;
+  cursor: pointer;
+}
+
+.fa-envelope {
+  color: #1c1;
+  cursor: pointer;
+}
+
+.fa-comments {
+  color: #15e;
+  cursor: pointer;
+}
+
+/*.block-update-card {
   height: 100%;
   border: 1px #FFFFFF solid;
   width: 380px;
@@ -136,26 +168,10 @@ body {
 .card-body-social {
   font-size: 40px;
   margin-top: 10px;
-}
+}*/
 
-.fa {
-  margin-right: 10px;
-}
-
-.fa-heart {
-  color: #c11;
-  cursor: pointer;
-}
-
-.fa-envelope {
-  color: #1c1;
-  cursor: pointer;
-}
-
-.fa-comments {
-  color: #15e;
-  cursor: pointer;
-}
+/*Deets
+-----------------------------------------------------*/
 
 .members {
   padding: 10px;

@@ -1,14 +1,18 @@
 angular.module('app')
   .controller('Users', Users)
 
-Users.$inject = ['Members'];
+Users.$inject = ['$state', 'Members', 'currentUser', 'users'];
 
-function Users(Members, currentUser, Users) {
+function Users($state, Members, currentUser, users) {
   const vm = this;
+  console.log(users);
+  vm.members = users;
 
-  Members.all().then(members => {
-    vm.members = members;
-    console.log(currentUser);
-    console.log(Users);
-  })
+  vm.showDetails = function(id) {
+    $state.go('main.users.detail({id: '+id+'})')
+  }
+
+  vm.match = function() {
+    console.log('match');
+  }
 }

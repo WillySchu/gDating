@@ -18,6 +18,7 @@ angular.module('app')
       })
       .state('main.login', {
         url: 'login',
+        preventWhenLoggedIn: true,
         views: {
           'content@': {
             templateUrl: 'partials/login.html',
@@ -37,7 +38,7 @@ angular.module('app')
           }
         },
         resolve: {
-          currentUser : function(User) {
+          currentUser: function(User) {
             return User.getUser();
           },
           users: function(Members){
@@ -47,11 +48,17 @@ angular.module('app')
       })
       .state('main.users.detail', {
         url: '/:id',
+        restricted: true,
         views: {
           'detail@main.users': {
             templateUrl: 'partials/user-detail.html',
             controller: 'UserDetail',
             controllerAs: 'detail'
+          }
+        },
+        resolve: {
+          selectedUser: function(Members, $stateParams) {
+            return Members.getUserById($stateParams.id);
           }
         }
       })

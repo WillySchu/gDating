@@ -1,11 +1,10 @@
 angular.module('app')
   .controller('UserDetail', UserDetail)
 
-UserDetail.$inject = ['Members', '$stateParams']
+UserDetail.$inject = ['Members', '$stateParams', 'selectedUser']
 
-function UserDetail(Members, $stateParams) {
+function UserDetail(Members, $stateParams, selectedUser) {
   const vm = this;
-  Members.getUserById($stateParams.id).then(member => {
-    vm.member = member;
-  })
+  
+  vm.member = selectedUser;
 }

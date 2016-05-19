@@ -18,7 +18,7 @@
                   <div class="container-fluid">
                     <div class="row">
                       <div class="col-sm-6">
-                        <img class='profile-pic' src="https://s3.amazonaws.com/uifaces/faces/twitter/fronx/128.jpg" alt="" />
+                        <img class='profile-pic' ng-src="{{profile.user.avatar}}" alt="{{profile.user.username}}" />
                         <p class='lead'>
                           {{profile.user.names.firstName}} {{profile.user.names.lastName}}
                         </p>
@@ -40,7 +40,7 @@
                           Description:
                         </p>
                         <p>
-
+                          {{profile.user.description}}
                         </p>
                       </div>
                     </div>

@@ -1,26 +1,37 @@
-<div class="detail-card fixed">
-  <div class="container-fluid">
-    <div class="row detail-card-row">
-      <div class="col-md-4">
-          <img ng-src="{{detail.member.avatar}}" alt="{{detail.member.username}}" />
-      </div>
-      <div class="col-md-4">
-        <h2>{{detail.member.names.firstName}} {{detail.member.names.lastName}}</h2>
-        <h4>{{detail.member.username}}</h4>
-        <h4>Interests: </h4>
-        <p><span ng-repeat='interest in detail.member.interestedIn'>{{interest}}, </span></p>
-      </div>
-      <div class="col-md-4">
-        <div class="">
-          <button ng-click='users.match(detail.member._id)' class='btn btn-card btn-lg btn-block btn-match' type="button" name="button">Match</button>
-        </div>
-        <div class="">
-          <button class='btn btn-card btn-lg btn-block btn-email' type="button" name="button">Email</button>
-        </div>
-        <div class="">
-          <button class='btn btn-card btn-lg btn-block btn-message' type="button" name="button">Message</button>
-        </div>
+
+<div class="panel panel-default fixed detail-card">
+  <div class="panel-heading">
+    {{detail.member.username}}
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="{{detail.member.avatar}}" alt="{{member.detail.username}}" />
       </div>
     </div>
   </div>
 </div>
+
+<!--
+<div class="row detail-card-row">
+  <div class="col-md-4">
+      <img ng-src="{{detail.member.avatar}}" alt="{{detail.member.username}}" />
+  </div>
+  <div class="col-md-4">
+    <h2>{{detail.member.names.firstName}} {{detail.member.names.lastName}}</h2>
+    <h4>{{detail.member.username}}</h4>
+    <h4>Interests: </h4>
+    <p><span ng-repeat='interest in detail.member.interestedIn'>{{interest}}, </span></p>
+  </div>
+  <div class="col-md-4">
+    <div class="">
+      <button ng-click='users.match(detail.member._id)' class='btn btn-card btn-lg btn-block btn-match' type="button" name="button">Match</button>
+    </div>
+    <div class="">
+      <button class='btn btn-card btn-lg btn-block btn-email' type="button" name="button">Email</button>
+    </div>
+    <div class="">
+      <button class='btn btn-card btn-lg btn-block btn-message' type="button" name="button">Message</button>
+    </div>
+  </div>
+</div> -->

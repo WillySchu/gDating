@@ -7,7 +7,6 @@ angular.module('app', ['ui.router'])
         $state.go('login');
       }
       if (next.preventWhenLoggedIn && $window.localStorage.getItem("token")) {
-        console.log('stuff');
         event.preventDefault()
         $state.go('main.users');
       }

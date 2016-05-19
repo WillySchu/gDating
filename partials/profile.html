@@ -31,18 +31,23 @@
                           Gender: {{profile.user.gender}}
                         </p>
                         <p>
-                          Birthdat: {{profile.user.dob | date}}
+                          Age: {{profile.user.dob | age}}
+                        </p>
+                        <p>
+                          Birthday: {{profile.user.dob | date}}
                         </p>
                         <p>
                           Phone: {{profile.user.phone | tel}}
                         </p>
-                        <p>
-                          Description:
-                        </p>
-                        <p>
-                          {{profile.user.description}}
-                        </p>
                       </div>
+                    </div>
+                    <div class="row">
+                      <p>
+                        Description:
+                      </p>
+                      <p>
+                        {{profile.user.description}}
+                      </p>
                     </div>
                   </div>
                 </div>

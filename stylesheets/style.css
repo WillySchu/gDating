@@ -99,6 +99,11 @@ body {
   cursor: pointer;
 }
 
+.details-button:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+
 /*.block-update-card {
   height: 100%;
   border: 1px #FFFFFF solid;
@@ -182,8 +187,6 @@ body {
   margin: 10px;
   width: 60%;
   position: fixed;
-  border: 1px #FFFFFF solid;
-  box-shadow: 1px 1px 8px #d8d8d8;
 }
 
 .detail-card img {

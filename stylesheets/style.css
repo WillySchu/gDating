@@ -3,6 +3,7 @@ body {
   padding-bottom: 40px;
   /*background-color:#e9eaed;*/
   background-image: url(http://images.askmen.com/1080x540/dating/dating_advice/top-5-best-dating-apps-1107280-TwoByOne.jpg);
+  background-size: 100% 100%;
   opacity: 0.95;
   background-attachment: fixed;
 }

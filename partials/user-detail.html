@@ -1,4 +1,3 @@
-
 <div class="panel panel-default fixed detail-card">
   <div class="panel-heading">
     {{detail.member.username}}
@@ -7,6 +6,40 @@
     <div class="row">
       <div class="col-sm-4">
         <img src="{{detail.member.avatar}}" alt="{{member.detail.username}}" />
+      </div>
+      <div class="col-sm-8">
+        <div class="row">
+          <div class="col-sm-8">
+            <p class='lead'>
+              {{detail.member.names.firstName}}
+            </p>
+            <p>
+              Age: {{detail.member.dob | age}}
+            </p>
+            <p>
+              Gender(?): {{detail.member.gender}}
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <div class="btn-toolbar" role='toolbar'>
+              <ul class='list-unstyled'>
+                <li><div ng-click='users.match(users._id)' class="btn-group fa fa-heart"></div></li>
+                <li><div class="btn-group fa fa-envelope"></div></li>
+                <li><div class="btn-group fa fa-comments"></div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <p>
+              Description:
+            </p>
+            <p>
+              {{detail.member.description}}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@ angular.module('app')
 
 Profile.$inject = ['User', 'Members', 'user', 'matches'];
 
-function Profile(User, Members, user, matches) {
+function Profile(User, Members, user, matches, convos) {
   const vm = this;
 
   vm.matches = [];
@@ -12,6 +12,7 @@ function Profile(User, Members, user, matches) {
     vm.matches[i] = matches[i].data.data
   }
 
+  vm.convos = convos
   vm.user = user;
 
   vm.unmatch = function(id) {
@@ -26,6 +27,9 @@ function Profile(User, Members, user, matches) {
     })
   }
 
+  vm.sendMessage = Members.sendMessage;
+
   console.log(vm.user);
   console.log(vm.matches);
+  console.log(vm.convos);
 }

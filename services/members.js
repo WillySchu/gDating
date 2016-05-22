@@ -45,6 +45,23 @@ angular.module('app')
         return $http.put(baseUrl + 'members/' + user._id, JSON.stringify({"_matches": matches})).then(stuff => {
           return stuff;
         })
+      },
+      getConvos: function(id, recId) {
+        if (id && recId) {
+          return $http.get(baseUrl +'members/'+ id + '/conversations/' + recId)
+        } else if (id) {
+          return $http.get(baseUrl +'members/'+ id + '/conversations')
+        } else {
+          const user = JSON.parse($window.localStorage.getItem('user'))
+          return $http.get(baseUrl + 'members/' + user._id + '/conversations')
+        }
+      },
+      sendMessage: function(id, _recipient, content) {
+        return $http.post(baseUrl + 'members/' + id + '/conversations', {_recipient, content}).then(data => {
+          console.log(data);
+        }).catch(err => {
+          console.log(err);
+        })
       }
     }
   })

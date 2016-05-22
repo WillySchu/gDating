@@ -101,6 +101,9 @@ angular.module('app')
           },
           matches: function(Members) {
             return Members.getMatches();
+          },
+          convos: function(Members) {
+            return Members.getConvos();
           }
         }
       })

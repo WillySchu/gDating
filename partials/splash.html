@@ -49,7 +49,7 @@
   	    </h3>
       </div>
       <div class="col-md-5">
-        <form ng-submit='splash.register()' class="form" role="form">
+        <form name='register' ng-submit='splash.register()' class="form" role="form">
           <legend><a>Create your account</a></legend>
         <div class="row">
           <div class="col-xs-6 col-md-6 first-name">
@@ -58,9 +58,14 @@
               name="firstName"
               placeholder="First Name"
               type="text"
-              ng-model='splash.new.firstName'
+              ng-model='splash.new.names.firstName'
+              ng-class="{'has-error': register.firstName.$invalid && register.firstName.$touched, 'is-valid': register.firstName.$valid && register.firstName.$dirty && register.firstName.$touched}"
               required
             />
+            <div ng-if='register.firstName.$error.required && register.firstName.$touched' class='help-block with-errors'
+              ng-message='required'>
+              Name is required
+            </div>
           </div>
           <div class="col-xs-6 col-md-6 last-name">
             <input
@@ -68,7 +73,7 @@
               name="lastName"
               placeholder="Last Name"
               type="text"
-              ng-model='splash.new.lastName'
+              ng-model='splash.new.names.lastName'
             />
           </div>
         </div>
@@ -78,22 +83,49 @@
           placeholder="Your Email"
           type="email"
           ng-model='splash.new.email'
+          ng-class="{'has-error': register.email.$invalid && register.email.$touched, 'is-valid': register.email.$valid && register.email.$dirty && register.email.$touched}"
           required
         />
+        <div ng-if='register.email.$error.required && register.email.$touched' class='help-block with-errors'
+          ng-message='required'>
+          Email is required
+        </div>
+        <div ng-if='register.email.$invalid && register.email.$dirty && register.email.$touched' class='help-block with-errors'>
+          Please enter a valid email
+        </div>
         <input
           class="form-control input-lg"
           name="password"
           placeholder="New Password"
           type="password"
           ng-model='splash.new.password'
+          ng-class="{'has-error': register.password.$invalid && register.password.$touched, 'is-valid': register.password.$valid && register.password.$dirty && register.password.$touched}"
+          ng-minlength='8'
+          required
         />
+        <div ng-if='register.password.$error.required && register.password.$touched' class='help-block with-errors'>
+          Password is required
+        </div>
+        <div ng-if='register.password.$error.minlength && register.password.$touched' class="help-block with-errors">
+          Password must be at least 8 characters long
+        </div>
         <input
           class="form-control input-lg"
           name="username"
           placeholder="Username"
           type="text"
           ng-model='splash.new.username'
+          ng-class="{'has-error': register.username.$invalid && register.username.$touched, 'is-valid': register.username.$valid && register.username.$dirty && register.username.$touched}"
+          ng-minlength='3'
+          data-error='invalid'
+          required
         />
+        <div ng-if='register.username.$error.required && register.username.$touched' class='help-block with-errors'>
+          Username is required
+        </div>
+        <div ng-if='register.username.$error.minlength' class='help-block with-errors'>
+          Username must be at least 3 characters long
+        </div>
         <label for="dob">
           Birth Date:
         </label>
@@ -103,7 +135,11 @@
           id="dob"
           type="date"
           ng-model='splash.new.dob'
+          required
         >
+        <div ng-if='register.dob.$error.required && register.dob.$touched' class="help-block with-errors">
+          Please enter a valid date
+        </div>
         <div class="">
           <label>Gender: </label>
           <label class="radio-inline">

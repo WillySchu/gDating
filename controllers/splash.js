@@ -7,17 +7,35 @@ function Splash(User, $state) {
   const vm = this;
 
   vm.register = function() {
-    console.log(vm.new);
-    vm.new.
-    // User.register(vm.new);
+    if (Object.keys(vm.new.interestedIn).length) {
+      const interests = [];
+      for (i in vm.new.interestedIn) {
+        if (vm.new.interestedIn[i]) {
+          interests.push(parseInt(i.slice(-1)));
+        }
+      }
+      vm.new.interestedIn = interests;
+    }
+    vm.new.address = {};
+    vm.new.address.geo = {};
+    vm.new.address.geo.lat = 0;
+    vm.new.address.geo.lng = 0;
+    vm.new.slug = vm.new.username;
+    User.register(vm.new).then(data => {
+      User.setUser(data.data.data);
+      console.log(data);
+      $state.go('main.users')
+    }).catch(err => {
+      console.log(err);
+    })
   }
 
   vm.login = function(email, password) {
     User.login({email, password}).then(data => {
       User.setUser(data.data.data)
       $state.go('main.users')
-      }).catch(data => {
-        console.log(data);
+    }).catch(err => {
+        console.log(err);
     })
   }
 

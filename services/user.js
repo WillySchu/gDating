@@ -11,7 +11,14 @@ angular.module('app')
       },
       setUser: function(data) {
         $window.localStorage.setItem("token",data.token);
-        $window.localStorage.setItem("user",JSON.stringify(data.user));
+        if (data.user) {
+          $window.localStorage.setItem("user",JSON.stringify(data.user));
+        } else if (data.data) {
+          $window.localStorage.setItem("user",JSON.stringify(data.data));
+        } else {
+          throw 'error'
+        }
+        console.log(data);
         return data;
       },
       updateUser: function(data) {

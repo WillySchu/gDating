@@ -5,6 +5,7 @@ angular.module('app')
     $stateProvider
       .state('splash', {
         url: '/splash',
+        preventWhenLoggedIn: true,
         views: {
           'content': {
             templateUrl: 'partials/splash.html',

@@ -1,5 +1,5 @@
 angular.module('app')
-  .factory('Members', function($http) {
+  .factory('Members', function($http, $q) {
     const baseUrl = 'https://galvanize-student-apis.herokuapp.com/gdating/';
     return {
       all: function() {
@@ -22,6 +22,18 @@ angular.module('app')
             }
           }
           return results;
+        })
+      },
+      match: function(user, matchedId) {
+        const matches = user._matches
+        const i = matches.indexOf(matchedId);
+        if (i > -1) {
+          matches.splice(i, 1);
+        } else {
+          matches.push(matchedId);
+        }
+        return $http.put(baseUrl + 'members/' + user._id, JSON.stringify({"_matches": matches})).then(stuff => {
+          return stuff;
         })
       }
     }

@@ -8,7 +8,7 @@ function Login(User, $state) {
 
   vm.login = function(email, password) {
     User.login({email, password}).then(data => {
-      User.setUser(data)
+      User.setUser(data.data.data)
       $state.go('main.users')
       }).catch(data => {
         console.log(data);

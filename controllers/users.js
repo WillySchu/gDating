@@ -1,9 +1,9 @@
 angular.module('app')
   .controller('Users', Users)
 
-Users.$inject = ['$state', 'Members', 'currentUser', 'users'];
+Users.$inject = ['$state', 'Members', 'User', 'currentUser', 'users'];
 
-function Users($state, Members, currentUser, users) {
+function Users($state, Members, User, currentUser, users) {
   const vm = this;
   console.log(users);
   vm.members = users;
@@ -12,7 +12,13 @@ function Users($state, Members, currentUser, users) {
     $state.go('main.users.detail({id: '+id+'})')
   }
 
-  vm.match = function() {
-    console.log('match');
+  vm.match = function(id) {
+    console.log(id);
+    Members.match(currentUser, id).then(user => {
+      console.log(user.data.data);
+      User.updateUser(user.data.data);
+    }).catch(err => {
+      console.log(err);
+    })
   }
 }

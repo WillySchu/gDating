@@ -10,10 +10,13 @@ angular.module('app')
         return $http.post(baseUrl + 'auth/register', member)
       },
       setUser: function(data) {
-        user = data.data.data;
-        $window.localStorage.setItem("token",data.data.data.token);
-        $window.localStorage.setItem("user",JSON.stringify(data.data.data.user));
-        return user;X
+        $window.localStorage.setItem("token",data.token);
+        $window.localStorage.setItem("user",JSON.stringify(data.user));
+        return data;
+      },
+      updateUser: function(data) {
+        $window.localStorage.setItem('user', JSON.stringify(data))
+        return data;
       },
       logout: function() {
         user = null;

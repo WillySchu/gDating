@@ -6,7 +6,7 @@ angular.module('app')
       .state('splash', {
         url: '/splash',
         views: {
-          'splash': {
+          'content': {
             templateUrl: 'partials/splash.html',
             controller: 'Splash',
             controllerAs: 'splash'
@@ -24,6 +24,17 @@ angular.module('app')
           },
           'content': {
             templateUrl: 'partials/content.html',
+          }
+        }
+      })
+      .state('splash.register', {
+        url: '/register',
+        preventWhenLoggedIn: true,
+        views: {
+          'content@': {
+            templateUrl: 'partials/register.html',
+            controller: 'Register',
+            controllerAs: 'register'
           }
         }
       })

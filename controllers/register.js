@@ -1,10 +1,9 @@
 angular.module('app')
   .controller('Register', Register)
 
-Register.$inject = [];
+Register.$inject = ['User'];
 
-function Register() {
+function Register(User) {
   const vm = this;
-
   
 }

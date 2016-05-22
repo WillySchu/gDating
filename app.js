@@ -4,7 +4,7 @@ angular.module('app', ['ui.router'])
       if (next.restricted && !$window.localStorage.getItem("token")) {
         console.log(next);
         event.preventDefault();
-        $state.go('login');
+        $state.go('splash');
       }
       if (next.preventWhenLoggedIn && $window.localStorage.getItem("token")) {
         event.preventDefault()

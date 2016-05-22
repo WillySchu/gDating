@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <form class="">
+    <form ng-submit='register.register()' class="form-signin">
       <div class="form-group">
         <label for="email">Email: </label>
         <input
@@ -9,6 +9,8 @@
           id='email'
           placeholder='Email...'
           ng-model='register.new.email'
+          class='form-control'
+          required
         >
       </div>
       <div class="form-group">
@@ -19,6 +21,8 @@
           id='password'
           placeholder='Password...'
           ng-model='register.new.password'
+          class='form-control'
+          required
         >
       </div>
       <div class="form-group">
@@ -29,12 +33,58 @@
         id='confirmPassword'
         placeholder='Confirm Password...'
         ng-model='register.new.confirmPassword'
+        class='form-control'
+        required
       >
       </div>
       <div class="form-group">
-
+        <label for='username'>Username: </label>
+        <input
+          type='text'
+          name='username'
+          id='username'
+          placeholder='Username...'
+          ng-model='register.new.username'
+          class='form-control'
+          required
+        >
       </div>
-
+      <div class="form-group">
+        <label for="dob">Birthday: </label>
+        <input
+          type="date"
+          name="dob"
+          id='dob'
+          placeholder='Birthday...'
+          ng-model='register.new.dob'
+          class='form-control'
+          required
+        >
+      </div>
+      <div class="form-group">
+        <label for="firstName">First Name: </label>
+        <input
+          type='text'
+          name='firstName'
+          id='firstName'
+          placeholder='First Name...'
+          ng-model='register.new.firstName'
+          class='form-control'
+          required
+        >
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name: </label>
+        <input
+          type='text'
+          name='lastName'
+          id='lastName'
+          placeholder='Last Name...'
+          ng-model='register.new.lastName'
+          class='form-control'
+        >
+      </div>
+      <button class='btn btn-primary btn-block' type="submit" name="button">SUBMIT</button>
     </form>
   </div>
 </div>

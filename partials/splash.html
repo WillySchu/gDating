@@ -1,0 +1,155 @@
+<div id="wrap">
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="">gDating<span class='glyphicon glyphicon-fire'></a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <form ng-submit='splash.login(splash.login.email, splash.login.password)' class="navbar-form navbar-right" id="header-form" role="form">
+    		  <div class="lt-left">
+    			  <div class="form-group">
+    				  <label for="exampleInputEmail2">Email</label>
+    				  <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail2"
+                placeholder="Email"
+                ng-model='splash.login.email'
+              >
+    			  </div>
+    			  <div class="form-group">
+    				  <label for="exampleInputPassword2">Password</label>
+    				  <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword2"
+                placeholder="Password"
+                ng-model='splash.login.password'
+              >
+    			  </div>
+            <button type="submit" class="btn btn-default">Login</button>
+    		  </div>
+    	  </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container" id="home">
+    <div class="row">
+      <div class="col-md-7">
+  	    <h3 class="slogan">
+  		    Welcome to gDating, a place where nerds find love.
+  	    </h3>
+      </div>
+      <div class="col-md-5">
+        <form ng-submit='splash.register()' class="form" role="form">
+          <legend><a>Create your account</a></legend>
+        <div class="row">
+          <div class="col-xs-6 col-md-6 first-name">
+            <input
+              class="form-control input-lg"
+              name="firstName"
+              placeholder="First Name"
+              type="text"
+              ng-model='splash.new.firstName'
+              required
+            />
+          </div>
+          <div class="col-xs-6 col-md-6 last-name">
+            <input
+              class="form-control input-lg"
+              name="lastName"
+              placeholder="Last Name"
+              type="text"
+              ng-model='splash.new.lastName'
+            />
+          </div>
+        </div>
+        <input
+          class="form-control input-lg"
+          name="email"
+          placeholder="Your Email"
+          type="email"
+          ng-model='splash.new.email'
+          required
+        />
+        <input
+          class="form-control input-lg"
+          name="password"
+          placeholder="New Password"
+          type="password"
+          ng-model='splash.new.password'
+        />
+        <input
+          class="form-control input-lg"
+          name="username"
+          placeholder="Username"
+          type="text"
+          ng-model='splash.new.username'
+        />
+        <label for="dob">
+          Birth Date:
+        </label>
+        <input
+          class='form-control input-lg'
+          name="dob"
+          id="dob"
+          type="date"
+          ng-model='splash.new.dob'
+        >
+        <div class="">
+          <label>Gender: </label>
+          <label class="radio-inline">
+            <input type="radio"ng-model='splash.new.gender' name="gender" id="inlineCheckbox1" value="0" />
+            0
+          </label>
+          <label class="radio-inline">
+            <input type="radio"ng-model='splash.new.gender' name="gender" id="inlineCheckbox2" value="1"/>
+            1
+          </label>
+          <label class="radio-inline">
+            <input type="radio"ng-model='splash.new.gender' name="gender" id="inlineCheckbox3" value="2" />
+            2
+          </label>
+          <label class="radio-inline">
+            <input type="radio"ng-model='splash.new.gender' name="gender" id="inlineCheckbox4" value="3" />
+            3
+          </label>
+        </div>
+        <div class="">
+          <label>Looking for: </label>
+          <label class="radio-inline">
+            <input type="checkbox" ng-model='splash.new.interestedIn.val1' name="interestedIn" id="inlineCheckbox5" value="0"/>
+            0
+          </label>
+          <label class="radio-inline">
+            <input type="checkbox" ng-model='splash.new.interestedIn.val2' name="interestedIn" id="inlineCheckbox6" value="1" />
+            1
+          </label>
+          <label class="radio-inline">
+            <input type="checkbox" ng-model='splash.new.interestedIn.val3' name="interestedIn" id="inlineCheckbox7" value="2" />
+            2
+          </label>
+          <label class="radio-inline">
+            <input type="checkbox" ng-model='splash.new.interestedIn.val4' name="interestedIn" id="inlineCheckbox8" value="3" />
+            3
+          </label>
+
+        </div>
+        <br />
+        <span class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</span>
+        <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
+          Create my account
+        </button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>

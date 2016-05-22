@@ -1,5 +1,5 @@
 angular.module('app')
-  .factory('Members', function($http, $q) {
+  .factory('Members', function($http, $q, $window) {
     const baseUrl = 'https://galvanize-student-apis.herokuapp.com/gdating/';
     return {
       all: function() {
@@ -12,9 +12,19 @@ angular.module('app')
           return member.data.data
         })
       },
-      getMatches: function(id) {
+      getMatches: function() {
+        const user = JSON.parse($window.localStorage.getItem('user'));
+        const matches = user._matches;
+        const pUsers = [];
+        for (i in matches) {
+          pUsers.push($http.get(baseUrl + 'members/' + matches[i]));
+        }
+        return $q.all(pUsers)
+      },
+      getMatched: function(id) {
         return $http.get(baseUrl + 'members').then(members => {
           const peeps = members.data.data
+          console.log(peeps);
           const results = [];
           for (i in peeps) {
             if (peeps[i]._matches === 'id') {

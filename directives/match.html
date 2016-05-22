@@ -1,0 +1,27 @@
+<div class="panel panel-default" ng-repeat='match in profile.matches'>
+  <div class="panel-heading"><a href="" class="pull-right">View all</a> <h4>{{match.username}}</h4></div>
+  <div class="panel-body">
+
+    <img ng-src="{{match.avatar}}" class="img-circle">
+    <p class='lead'>
+      {{match.names.firstName}} {{match.names.lastName}}
+    </p>
+    <div class="clearfix"></div>
+    <hr>
+
+    <p>
+      {{match.description || 'This user has not entered a description'}}
+    </p>
+
+    <hr>
+    <form>
+      <div class="input-group">
+        <div class="input-group-btn">
+          <button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+        </div>
+        <input type="text" class="form-control" placeholder="Add a comment..">
+      </div>
+    </form>
+
+  </div>
+</div>

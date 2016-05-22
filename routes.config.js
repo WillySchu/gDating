@@ -85,7 +85,10 @@ angular.module('app')
         },
         resolve: {
           user: function(User) {
-            return User.getUser()
+            return User.getUser();
+          },
+          matches: function(Members) {
+            return Members.getMatches();
           }
         }
       })

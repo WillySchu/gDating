@@ -13,9 +13,7 @@ function Users($state, Members, User, currentUser, users) {
   }
 
   vm.match = function(id) {
-    console.log(id);
     Members.match(currentUser, id).then(user => {
-      console.log(user.data.data);
       User.updateUser(user.data.data);
     }).catch(err => {
       console.log(err);

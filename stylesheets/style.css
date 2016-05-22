@@ -102,6 +102,10 @@ body {
   cursor: pointer;
 }
 
+.fa-close {
+  cursor: pointer;
+}
+
 .details-button:hover {
   cursor: pointer;
   background-color: #eee;
@@ -216,10 +220,9 @@ hr {
    padding-left:0;
    padding-right:0;
 }
-#main .img-circle {
-   margin-top:18px;
-   height:70px;
-   width:70px;
+.img-circle {
+  width: 100%;
+  height: auto;
 }
 
 #footer {

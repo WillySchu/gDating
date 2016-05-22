@@ -1,25 +1,45 @@
-<div class="panel panel-default" ng-repeat='match in profile.matches'>
-  <div class="panel-heading"><a href="" class="pull-right">View all</a> <h4>{{match.username}}</h4></div>
+<div class="panel panel-default">
+  <div class="panel-heading"><a href="" class="pull-right">View Profile</a> <h4>{{match.username}}</h4></div>
   <div class="panel-body">
-
-    <img ng-src="{{match.avatar}}" class="img-circle">
-    <p class='lead'>
-      {{match.names.firstName}} {{match.names.lastName}}
-    </p>
-    <div class="clearfix"></div>
+    <div class="container-fluid">
+      <div class="col-md-4">
+        <img ng-src="{{match.avatar}}" class="img-circle">
+      </div>
+      <div class="col-md-4">
+        <p class='lead'>
+          {{match.names.firstName}} {{match.names.lastName}}
+        </p>
+        <p>
+          Gender: {{match.gender}}
+        </p>
+        <p>
+          Age: {{match.dob | age}}
+        </p>
+        <p>
+          Birthday: {{match.dob | date}}
+        </p>
+        <p>
+          Phone: {{match.phone | tel}}
+        </p>
+      </div>
+      <div class="col-md-4">
+        <ul class='list-unstyled'>
+          <li><div ng-click='profile.unmatch(match._id)' class="btn-group fa fa-close"></div></li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
     <hr>
-
     <p>
       {{match.description || 'This user has not entered a description'}}
     </p>
-
     <hr>
     <form>
       <div class="input-group">
+        <input type="text" class="form-control" placeholder="Send a message...">
         <div class="input-group-btn">
-          <button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+          <button class="btn btn-default"><i class="glyphicon glyphicon-send"></i></button>
         </div>
-        <input type="text" class="form-control" placeholder="Add a comment..">
       </div>
     </form>
 

@@ -1,7 +1,7 @@
 angular.module('app')
   .controller('Profile', Profile)
 
-Profile.$inject = ['User', 'Members', 'user', 'matches'];
+Profile.$inject = ['User', 'Members', 'user', 'matches', 'convos'];
 
 function Profile(User, Members, user, matches, convos) {
   const vm = this;
@@ -12,7 +12,7 @@ function Profile(User, Members, user, matches, convos) {
     vm.matches[i] = matches[i].data.data
   }
 
-  vm.convos = convos
+  vm.convos = convos.data.data;
   vm.user = user;
 
   vm.unmatch = function(id) {

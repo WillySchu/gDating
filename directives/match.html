@@ -34,16 +34,27 @@
       {{match.description || 'This user has not entered a description'}}
     </p>
     <hr>
-    <form>
-        <form ng-submit='profile.sendMessage(profile.user._id, match._id, match.message)' role='form' class='form'>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Send a message..." ng-model='match.message'>
-            <div class="input-group-btn">
-              <button type='submit' class="btn btn-default"><i class="glyphicon glyphicon-send"></i></button>
-            </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="bubble bubble-recieved">
+            hello
           </div>
-        </form>
+        </div>
+        <div class="col-md-6">
+          <div class="bubble bubble-sent pull-right">
+            sup
+          </div>
+        </div>
+      </div>
+    </div>
+    <form ng-submit='profile.sendMessage(profile.user._id, match._id, match.message)' role='form' class='form-horizontal'>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Send a message..." ng-model='match.message'>
+        <div class="input-group-btn">
+          <button type='submit' class="btn btn-default"><i class="glyphicon glyphicon-send"></i></button>
+        </div>
+      </div>
     </form>
-
   </div>
 </div>

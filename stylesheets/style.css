@@ -399,3 +399,46 @@ legend a{
 .is-valid {
   border: 1px solid #191;
 }
+
+
+/*Bubbles
+---------------------------------------------------*/
+
+.bubble {
+position: relative;
+padding: 5px;
+max-width: 200px;
+background: #aa3456;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+.bubble:after {
+content: '';
+position: absolute;
+border-style: solid;
+border-color: transparent #aa3456;
+display: block;
+width: 0;
+z-index: 1;
+top: 15%;
+}
+
+.bubble-sent:after {
+  border-width: 10px 0 10px 15px;
+  right: -10px;
+}
+
+.bubble-received:after {
+  border-width: 10px 15px 10px 0;
+  left: -100px;
+}
+
+.bubble-sent {
+
+}
+
+.bubble-received {
+
+}

@@ -107,4 +107,23 @@ angular.module('app')
           }
         }
       })
+      .state('main.search', {
+        url: 'search/:term',
+        restricted: true,
+        views: {
+          'content@': {
+            templateUrl: 'partials/users.html',
+            controller: 'Users',
+            controllerAs: 'users'
+          }
+        },
+        resolve: {
+          currentUser: function(User) {
+            return User.getUser();
+          },
+          users: function(Members){
+            return Members.search($stateParams.term);
+          }
+        }
+      })
   })

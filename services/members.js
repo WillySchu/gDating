@@ -3,7 +3,7 @@ angular.module('app')
     const baseUrl = 'https://galvanize-student-apis.herokuapp.com/gdating/';
     return {
       all: function() {
-        return $http.get(baseUrl + 'members?').then(members => {
+        return $http.get(baseUrl + 'members?limit=50').then(members => {
           return members.data.data;
         })
       },

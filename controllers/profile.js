@@ -7,7 +7,6 @@ function Profile(User, Members, user, matches, convos) {
   const vm = this;
 
   vm.convos = convos.data.data;
-  console.log(vm.convos);
   vm.user = user;
   vm.matches = [];
 
@@ -19,7 +18,6 @@ function Profile(User, Members, user, matches, convos) {
       }
     }
   }
-  console.log('matches', vm.matches);
 
   vm.unmatch = function(id) {
     for (i in matches) {
@@ -34,8 +32,4 @@ function Profile(User, Members, user, matches, convos) {
   }
 
   vm.sendMessage = Members.sendMessage;
-
-  console.log(vm.user);
-  console.log(vm.matches);
-  console.log(vm.convos);
 }

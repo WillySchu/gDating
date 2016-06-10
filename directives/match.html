@@ -36,12 +36,14 @@
     <hr>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
-          <div class="bubble bubble-received">
-            hello
-          </div>
-          <div class="bubble bubble-sent pull-right">
-            sup
+        <div ng-repeat='message in match.messages.messages' class="col-md-12">
+          <div >
+            <div ng-if='message._sender == match._id' class="bubble bubble-received">
+              {{message.content}}
+            </div>
+            <div ng-if='message._sender != match._id' class="bubble bubble-sent pull-right">
+              {{message.content}}
+            </div>
           </div>
         </div>
       </div>

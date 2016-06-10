@@ -6,14 +6,20 @@ Profile.$inject = ['User', 'Members', 'user', 'matches', 'convos'];
 function Profile(User, Members, user, matches, convos) {
   const vm = this;
 
+  vm.convos = convos.data.data;
+  console.log(vm.convos);
+  vm.user = user;
   vm.matches = [];
 
   for (i in matches) {
-    vm.matches[i] = matches[i].data.data
+    vm.matches[i] = matches[i].data.data;
+    for (j in vm.convos) {
+      if (vm.convos[j]._members[1] === vm.matches[i]._id || vm.convos[j]._members[0] === vm.matches[i]._id) {
+        vm.matches[i].messages = vm.convos[j];
+      }
+    }
   }
-
-  vm.convos = convos.data.data;
-  vm.user = user;
+  console.log('matches', vm.matches);
 
   vm.unmatch = function(id) {
     for (i in matches) {

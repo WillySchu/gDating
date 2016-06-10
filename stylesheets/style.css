@@ -428,17 +428,19 @@ top: 15%;
 .bubble-sent:after {
   border-width: 10px 0 10px 15px;
   right: -10px;
+  border-color: transparent #72FFFF;
 }
 
 .bubble-received:after {
   border-width: 10px 15px 10px 0;
   left: -10px;
+  border-color: transparent #FFE389;
 }
 
 .bubble-sent {
-
+  background-color: #72FFFF;
 }
 
 .bubble-received {
-
+  background-color: #FFE389;
 }

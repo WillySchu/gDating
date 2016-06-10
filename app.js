@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router'])
+angular.module('app', ['ui.router', 'infinite-scroll'])
   .run(function ($rootScope, $location, $window, $state, User) {
     $rootScope.$on('$stateChangeStart', function (event, next) {
       if (next.restricted && !$window.localStorage.getItem("token")) {

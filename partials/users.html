@@ -1,46 +1,48 @@
-<div class="container-fluid">
 <div class="row">
   <div class="col-md-4">
-    <div ng-repeat='member in users.members' class='members'>
+    <div infinite-scroll="users.paginate()" infinite-scroll-distance="3">
+      <div ng-repeat='member in users.members' class='members'>
 
-      <div class="panel panel-default user-card">
-        <div class="panel-heading">
-          {{member.username}}
-        </div>
-        <div class="panel-body">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-5">
-                <img ng-src="{{member.avatar}}" alt="member.username" />
-              </div>
-              <div class="col-sm-5">
-                <p class='lead'>
-                  {{member.names.firstName}}
-                </p>
-                <p>
-                  Age: {{member.dob | age}}
-                </p>
-                <p>
-                  Gender(?): {{member.gender}}
-                </p>
-              </div>
-              <div class="col-sm-2">
-                <div class="btn-toolbar" role='toolbar'>
-                  <ul class='list-unstyled'>
-                    <li><div ng-click='users.match(member._id)' class="btn-group fa fa-heart"></div></li>
-                    <li><div class="btn-group fa fa-envelope"></div></li>
-                    <li><div class="btn-group fa fa-comments"></div></li>
-                  </ul>
+        <div class="panel panel-default user-card">
+          <div class="panel-heading">
+            {{member.username}}
+          </div>
+          <div class="panel-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-5">
+                  <img ng-src="{{member.avatar}}" alt="member.username" />
+                </div>
+                <div class="col-sm-5">
+                  <p class='lead'>
+                    {{member.names.firstName}}
+                  </p>
+                  <p>
+                    Age: {{member.dob | age}}
+                  </p>
+                  <p>
+                    Gender(?): {{member.gender}}
+                  </p>
+                </div>
+                <div class="col-sm-2">
+                  <div class="btn-toolbar" role='toolbar'>
+                    <ul class='list-unstyled'>
+                      <li><div ng-click='users.match(member._id)' class="btn-group fa fa-heart"></div></li>
+                      <li><div class="btn-group fa fa-envelope"></div></li>
+                      <li><div class="btn-group fa fa-comments"></div></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div ui-sref='main.users.detail({id: member._id})' class="panel-footer details-button">
-          View Details
+          <div ui-sref='main.users.detail({id: member._id})' class="panel-footer details-button">
+            View Details
+          </div>
         </div>
       </div>
     </div>
+    <button ng-click='users.paginate()' class='btn btn-lg' type="button" name="button">MORE</button>
   </div>
 
   <div class="col-md-8">

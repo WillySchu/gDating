@@ -5,6 +5,7 @@ Users.$inject = ['$state', 'Members', 'User', 'currentUser', 'users'];
 
 function Users($state, Members, User, currentUser, users) {
   const vm = this;
+  let n = 50;
   console.log(users);
   vm.members = users;
 
@@ -18,5 +19,13 @@ function Users($state, Members, User, currentUser, users) {
     }).catch(err => {
       console.log(err);
     })
+  }
+
+  vm.paginate = function() {
+    n += 10;
+    Members.all(n).then(members => {
+      vm.members = members;
+    })
+    console.log(n);
   }
 }

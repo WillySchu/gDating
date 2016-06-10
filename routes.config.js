@@ -65,7 +65,7 @@ angular.module('app')
             return User.getUser();
           },
           users: function(Members){
-            return Members.all();
+            return Members.all(50);
           }
         }
       })

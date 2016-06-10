@@ -2,8 +2,8 @@ angular.module('app')
   .factory('Members', function($http, $q, $window) {
     const baseUrl = 'https://galvanize-student-apis.herokuapp.com/gdating/';
     return {
-      all: function() {
-        return $http.get(baseUrl + 'members?limit=50').then(members => {
+      all: function(n) {
+        return $http.get(baseUrl + 'members?limit=' + n).then(members => {
           return members.data.data;
         })
       },

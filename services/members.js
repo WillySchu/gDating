@@ -67,6 +67,7 @@ angular.module('app')
         console.log(term);
         return $http.get(baseUrl + 'members/search?username=' + term).then(data => {
           console.log(data);
+          return data.data.data
         }).catch(err => {
           console.log(err);
         })

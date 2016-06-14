@@ -119,9 +119,11 @@ angular.module('app')
         },
         resolve: {
           currentUser: function(User) {
+            console.log('current user');
             return User.getUser();
           },
-          users: function(Members){
+          users: function(Members, $stateParams){
+            console.log($stateParams.term);
             return Members.search($stateParams.term);
           }
         }
